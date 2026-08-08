@@ -1,0 +1,52 @@
+{
+  "name": "@vcqa-ref/widget-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Product-neutral reference implementation for the VibeCode QA TypeScript SDK standard.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@10.33.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vibecodeqa/ref-typescript-sdk.git"
+  },
+  "engines": {
+    "node": ">=22 <27",
+    "pnpm": ">=10 <11"
+  },
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check:drift": "pnpm run gen && git add --intent-to-add -- src/generated && git diff --exit-code -- src/generated",
+    "check:licenses": "node scripts/check-licenses.mjs",
+    "gen": "node scripts/generate-api-contract.mjs && biome format --write src/generated",
+    "lint": "biome check .",
+    "test": "vitest run",
+    "test:consumers": "pnpm run test:consumer-esm && pnpm run test:consumer-ts",
+    "test:consumer-esm": "pnpm --filter @vcqa-ref/consumer-esm run verify",
+    "test:consumer-ts": "pnpm --filter @vcqa-ref/consumer-ts run verify",
+    "typecheck": "tsc -p tsconfig.json",
+    "vcqa": "npx --yes @vibecodeqa/cli --markdown",
+    "verify": "pnpm run lint && pnpm run typecheck && pnpm run build && pnpm run test && pnpm run check:drift && pnpm run test:consumers && pnpm run check:licenses"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.5",
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  }
+}

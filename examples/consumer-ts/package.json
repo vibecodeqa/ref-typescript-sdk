@@ -1,0 +1,18 @@
+{
+  "name": "@vcqa-ref/consumer-ts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Compatibility fixture: type-checks and runs against the built package from TypeScript.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "verify": "tsc -p tsconfig.json && node dist/main.js"
+  },
+  "dependencies": {
+    "@vcqa-ref/widget-sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  }
+}

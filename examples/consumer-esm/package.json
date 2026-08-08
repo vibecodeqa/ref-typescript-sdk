@@ -1,0 +1,14 @@
+{
+  "name": "@vcqa-ref/consumer-esm",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Compatibility fixture: consumes the built package from plain ESM Node.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "verify": "node index.mjs"
+  },
+  "dependencies": {
+    "@vcqa-ref/widget-sdk": "workspace:*"
+  }
+}
