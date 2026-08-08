@@ -8,6 +8,7 @@ Score: **98/100 — grade A**
 | Run date | 2026-08-09 |
 | Assessed commit | [`6a47dd5b5793bdc2d4d2f1183b0e9b90560c904b`](https://github.com/vibecodeqa/ref-typescript-sdk/commit/6a47dd5b5793bdc2d4d2f1183b0e9b90560c904b) |
 | CI evidence | [run 31280995042](https://github.com/vibecodeqa/ref-typescript-sdk/actions/runs/31280995042) — `success`, Node 22 and Node 24, 2026-08-09 |
+| Re-verified | Same 98/100 at [`1c716097562e14a5d57c0a9759b5ae7cfabc92b3`](https://github.com/vibecodeqa/ref-typescript-sdk/commit/1c716097562e14a5d57c0a9759b5ae7cfabc92b3) (the commit that added this report), CI [run 31281081464](https://github.com/vibecodeqa/ref-typescript-sdk/actions/runs/31281081464) — `success` |
 | Detected stack | `typescript · monorepo (pnpm)` |
 
 | Category | Score | Weight |
