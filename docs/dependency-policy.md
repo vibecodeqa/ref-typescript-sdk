@@ -38,6 +38,13 @@ The license allowlist lives in `scripts/check-licenses.mjs`: permissive licenses
 Python-2.0). `A OR B` expressions pass when either half is allowed; `A AND B` needs both.
 Everything else, including an absent or unparsed license field, fails the build.
 
+## Update cadence
+
+Updates are reviewed manually and land directly on `main` — this project is trunk-based and
+takes no automated dependency pull requests, because a bot branch is a branch. Actions are
+pinned to a commit SHA with the human-readable tag in a trailing comment; refreshing them is
+part of the same review. `pnpm outdated` is the starting point, `pnpm verify` is the gate.
+
 ## Exception policy
 
 There are no standing exceptions today, and the mechanism is deliberately visible rather than
