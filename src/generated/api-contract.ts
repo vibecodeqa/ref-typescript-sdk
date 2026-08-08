@@ -10,6 +10,7 @@ export const SERVICE_NAME = "Widget API";
 /** Contract version the generated types and validators were produced from. */
 export const API_VERSION = "2026-08-01";
 
+/** A widget as the service returns it. */
 export interface Widget {
   id: string;
   name: string;
@@ -19,11 +20,13 @@ export interface Widget {
   createdAt: string;
 }
 
+/** One page of widgets, with an opaque cursor for the next page. */
 export interface WidgetPage {
   items: Widget[];
   nextCursor: string | null;
 }
 
+/** Payload accepted by `createWidget`. */
 export interface CreateWidgetInput {
   name: string;
   priceCents: number;
@@ -31,12 +34,14 @@ export interface CreateWidgetInput {
   tags?: string[];
 }
 
+/** Filters accepted by `listWidgets`. */
 export interface ListWidgetsQuery {
   status?: "draft" | "active" | "retired";
   limit?: number;
   cursor?: string;
 }
 
+/** Error envelope the service returns with a non-2xx status. */
 export interface ApiErrorBody {
   code: string;
   message: string;
@@ -46,6 +51,7 @@ export interface ApiErrorBody {
 /** Runtime schema descriptors, used to validate payloads at the wire boundary. */
 export const schemas = {
   Widget: {
+    description: "A widget as the service returns it.",
     kind: "object",
     fields: {
       id: {
@@ -79,6 +85,7 @@ export const schemas = {
     },
   },
   WidgetPage: {
+    description: "One page of widgets, with an opaque cursor for the next page.",
     kind: "object",
     fields: {
       items: {
@@ -95,6 +102,7 @@ export const schemas = {
     },
   },
   CreateWidgetInput: {
+    description: "Payload accepted by `createWidget`.",
     kind: "object",
     fields: {
       name: {
@@ -122,6 +130,7 @@ export const schemas = {
     },
   },
   ListWidgetsQuery: {
+    description: "Filters accepted by `listWidgets`.",
     kind: "object",
     fields: {
       status: {
@@ -143,6 +152,7 @@ export const schemas = {
     },
   },
   ApiErrorBody: {
+    description: "Error envelope the service returns with a non-2xx status.",
     kind: "object",
     fields: {
       code: {

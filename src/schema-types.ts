@@ -8,6 +8,8 @@
 
 /** Common attributes every schema node may carry. */
 export interface SchemaNodeBase {
+  /** Prose carried over from the contract; surfaced as JSDoc on generated types. */
+  readonly description?: string;
   /** The value may be `null` on the wire. */
   readonly nullable?: boolean;
   /** The property may be absent from its parent object. */

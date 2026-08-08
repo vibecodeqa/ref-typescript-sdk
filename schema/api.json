@@ -4,46 +4,122 @@
   "apiVersion": "2026-08-01",
   "types": {
     "Widget": {
+      "description": "A widget as the service returns it.",
       "kind": "object",
       "fields": {
-        "id": { "kind": "string", "minLength": 1 },
-        "name": { "kind": "string", "minLength": 1, "maxLength": 120 },
-        "status": { "kind": "enum", "values": ["draft", "active", "retired"] },
-        "priceCents": { "kind": "integer", "minimum": 0 },
-        "tags": { "kind": "array", "items": { "kind": "string", "minLength": 1 } },
-        "createdAt": { "kind": "string", "minLength": 1 }
+        "id": {
+          "kind": "string",
+          "minLength": 1
+        },
+        "name": {
+          "kind": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "status": {
+          "kind": "enum",
+          "values": ["draft", "active", "retired"]
+        },
+        "priceCents": {
+          "kind": "integer",
+          "minimum": 0
+        },
+        "tags": {
+          "kind": "array",
+          "items": {
+            "kind": "string",
+            "minLength": 1
+          }
+        },
+        "createdAt": {
+          "kind": "string",
+          "minLength": 1
+        }
       }
     },
     "WidgetPage": {
+      "description": "One page of widgets, with an opaque cursor for the next page.",
       "kind": "object",
       "fields": {
-        "items": { "kind": "array", "items": { "kind": "ref", "target": "Widget" } },
-        "nextCursor": { "kind": "string", "nullable": true }
+        "items": {
+          "kind": "array",
+          "items": {
+            "kind": "ref",
+            "target": "Widget"
+          }
+        },
+        "nextCursor": {
+          "kind": "string",
+          "nullable": true
+        }
       }
     },
     "CreateWidgetInput": {
+      "description": "Payload accepted by `createWidget`.",
       "kind": "object",
       "fields": {
-        "name": { "kind": "string", "minLength": 1, "maxLength": 120 },
-        "priceCents": { "kind": "integer", "minimum": 0 },
-        "status": { "kind": "enum", "values": ["draft", "active", "retired"], "optional": true },
-        "tags": { "kind": "array", "items": { "kind": "string", "minLength": 1 }, "optional": true }
+        "name": {
+          "kind": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "priceCents": {
+          "kind": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "kind": "enum",
+          "values": ["draft", "active", "retired"],
+          "optional": true
+        },
+        "tags": {
+          "kind": "array",
+          "items": {
+            "kind": "string",
+            "minLength": 1
+          },
+          "optional": true
+        }
       }
     },
     "ListWidgetsQuery": {
+      "description": "Filters accepted by `listWidgets`.",
       "kind": "object",
       "fields": {
-        "status": { "kind": "enum", "values": ["draft", "active", "retired"], "optional": true },
-        "limit": { "kind": "integer", "minimum": 1, "maximum": 100, "optional": true },
-        "cursor": { "kind": "string", "minLength": 1, "optional": true }
+        "status": {
+          "kind": "enum",
+          "values": ["draft", "active", "retired"],
+          "optional": true
+        },
+        "limit": {
+          "kind": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "optional": true
+        },
+        "cursor": {
+          "kind": "string",
+          "minLength": 1,
+          "optional": true
+        }
       }
     },
     "ApiErrorBody": {
+      "description": "Error envelope the service returns with a non-2xx status.",
       "kind": "object",
       "fields": {
-        "code": { "kind": "string", "minLength": 1 },
-        "message": { "kind": "string", "minLength": 1 },
-        "requestId": { "kind": "string", "optional": true }
+        "code": {
+          "kind": "string",
+          "minLength": 1
+        },
+        "message": {
+          "kind": "string",
+          "minLength": 1
+        },
+        "requestId": {
+          "kind": "string",
+          "optional": true
+        }
       }
     }
   },

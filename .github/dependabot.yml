@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # Dependency hygiene is a gate here (audit + license allowlist), so updates are
+  # proposed automatically rather than discovered during an incident.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      dev-tooling:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

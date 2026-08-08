@@ -20,6 +20,7 @@ export {
 } from "./errors.js";
 export {
   API_VERSION,
+  type ApiErrorBody,
   type CreateWidgetInput,
   type ListWidgetsQuery,
   type OperationName,
@@ -41,6 +42,7 @@ export type {
   OperationDescriptor,
   RefNode,
   SchemaNode,
+  SchemaNodeBase,
   SchemaRegistry,
   StringNode,
 } from "./schema-types.js";

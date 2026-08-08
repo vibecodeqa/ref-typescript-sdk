@@ -53,7 +53,8 @@ function renderInterface(name, node) {
   const fields = Object.entries(node.fields).map(
     ([field, spec]) => `  ${field}${spec.optional === true ? "?" : ""}: ${tsType(spec)};`,
   );
-  return [`export interface ${name} {`, ...fields, "}"].join("\n");
+  const doc = node.description === undefined ? [] : [`/** ${node.description} */`];
+  return [...doc, `export interface ${name} {`, ...fields, "}"].join("\n");
 }
 
 function render(contract) {

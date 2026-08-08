@@ -35,7 +35,7 @@
     "check:licenses": "node scripts/check-licenses.mjs",
     "gen": "node scripts/generate-api-contract.mjs && biome format --write src/generated",
     "lint": "biome check .",
-    "test": "vitest run",
+    "test": "vitest run --coverage",
     "test:consumers": "pnpm run test:consumer-esm && pnpm run test:consumer-ts",
     "test:consumer-esm": "pnpm --filter @vcqa-ref/consumer-esm run verify",
     "test:consumer-ts": "pnpm --filter @vcqa-ref/consumer-ts run verify",
@@ -45,8 +45,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.5",
-    "@types/node": "^24.10.1",
-    "typescript": "^5.9.3",
-    "vitest": "^3.2.7"
+    "@types/node": "^26.2.0",
+    "@vitest/coverage-v8": "^4.1.10",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }
